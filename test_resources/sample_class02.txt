@@ -1,0 +1,24 @@
+class TestClass : SuperClass {
+  let field01: Int = 1
+  let field02: String = "abc"
+  var field03 = "abc"
+
+  init(name: String) {
+  }
+
+  func testFunc() {
+  }
+
+  func testFunc1(param: String) -> Int {
+    if (param == "test") {
+      return 123
+    } else {
+      return 456
+    }
+  }
+  
+  func testFunc2(param: String = "abc", param2: Int) {
+    print("abc")
+  }
+
+}

@@ -1,0 +1,481 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CE23B0281D87B54100479F31 /* SwiftTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE23B0271D87B54100479F31 /* SwiftTest.swift */; };
+		CE23B0C81D8818C800479F31 /* FieldSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE23B0C71D8818C800479F31 /* FieldSpec.swift */; };
+		CE52A8C31D923DE600C8DF84 /* EnumSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE52A8C21D923DE600C8DF84 /* EnumSpec.swift */; };
+		CE52A8C41D923E8000C8DF84 /* EnumSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE52A8C21D923DE600C8DF84 /* EnumSpec.swift */; };
+		CEA907C41D90E89B00D8D6B3 /* CodeBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA907C21D90E79700D8D6B3 /* CodeBlock.swift */; };
+		CEA907C51D90E89C00D8D6B3 /* CodeBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA907C21D90E79700D8D6B3 /* CodeBlock.swift */; };
+		CEA907C71D90F3B700D8D6B3 /* sample_extension01.txt in Resources */ = {isa = PBXBuildFile; fileRef = CEA907C61D90F3B700D8D6B3 /* sample_extension01.txt */; };
+		CEA907CE1D91564C00D8D6B3 /* sample_enum01.txt in Resources */ = {isa = PBXBuildFile; fileRef = CEA907CB1D91564C00D8D6B3 /* sample_enum01.txt */; };
+		CEA907CF1D91564C00D8D6B3 /* sample_enum02.txt in Resources */ = {isa = PBXBuildFile; fileRef = CEA907CC1D91564C00D8D6B3 /* sample_enum02.txt */; };
+		CEA907D01D91564C00D8D6B3 /* sample_struct01.txt in Resources */ = {isa = PBXBuildFile; fileRef = CEA907CD1D91564C00D8D6B3 /* sample_struct01.txt */; };
+		CEB596081D89069900EBF8EF /* libSwiftPoet.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB89D961D6B043C00F59645 /* libSwiftPoet.dylib */; };
+		CEB5960F1D890AC400EBF8EF /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB5960E1D890AC400EBF8EF /* String+Extensions.swift */; };
+		CEB596111D89102A00EBF8EF /* FieldSpec_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB596101D89102A00EBF8EF /* FieldSpec_Tests.swift */; };
+		CEB596121D89106000EBF8EF /* FieldSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE23B0C71D8818C800479F31 /* FieldSpec.swift */; };
+		CEB596141D8910AA00EBF8EF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB596131D8910AA00EBF8EF /* Constants.swift */; };
+		CEB596151D8910AA00EBF8EF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB596131D8910AA00EBF8EF /* Constants.swift */; };
+		CEB596161D8910E700EBF8EF /* SwiftFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB89DA31D6B08B700F59645 /* SwiftFile.swift */; };
+		CEB596171D89204900EBF8EF /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB5960E1D890AC400EBF8EF /* String+Extensions.swift */; };
+		CEB596191D893C3B00EBF8EF /* CodeWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB596181D893C3B00EBF8EF /* CodeWriter.swift */; };
+		CEB5961A1D893C3B00EBF8EF /* CodeWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB596181D893C3B00EBF8EF /* CodeWriter.swift */; };
+		CEB5961C1D895C2300EBF8EF /* MethodSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB5961B1D895C2300EBF8EF /* MethodSpec.swift */; };
+		CEB5961D1D895C2300EBF8EF /* MethodSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB5961B1D895C2300EBF8EF /* MethodSpec.swift */; };
+		CEB5961F1D8A52AE00EBF8EF /* MethodSpec_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB5961E1D8A52AE00EBF8EF /* MethodSpec_Tests.swift */; };
+		CEB596211D8A5CCC00EBF8EF /* TypeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB596201D8A5CCC00EBF8EF /* TypeSpec.swift */; };
+		CEB596221D8A5CCC00EBF8EF /* TypeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB596201D8A5CCC00EBF8EF /* TypeSpec.swift */; };
+		CEB596241D8A7E5500EBF8EF /* sample_class01.txt in Resources */ = {isa = PBXBuildFile; fileRef = CEB596231D8A7E5500EBF8EF /* sample_class01.txt */; };
+		CEB596291D8AB31C00EBF8EF /* StreamReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB596281D8AB31C00EBF8EF /* StreamReader.swift */; };
+		CEB5962B1D8B989000EBF8EF /* sample_class02.txt in Resources */ = {isa = PBXBuildFile; fileRef = CEB5962A1D8B989000EBF8EF /* sample_class02.txt */; };
+		CEB5962D1D8B9B9600EBF8EF /* sample_protocol01.txt in Resources */ = {isa = PBXBuildFile; fileRef = CEB5962C1D8B9B9600EBF8EF /* sample_protocol01.txt */; };
+		CEB5962F1D8B9F3300EBF8EF /* sample_protocol02.txt in Resources */ = {isa = PBXBuildFile; fileRef = CEB5962E1D8B9F3300EBF8EF /* sample_protocol02.txt */; };
+		CEB596311D8BF84800EBF8EF /* SwiftFile_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB596301D8BF84800EBF8EF /* SwiftFile_Tests.swift */; };
+		CEB89D9A1D6B043C00F59645 /* SwiftPoet.h in Headers */ = {isa = PBXBuildFile; fileRef = CEB89D991D6B043C00F59645 /* SwiftPoet.h */; };
+		CEB89D9C1D6B043C00F59645 /* SwiftPoet.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB89D9B1D6B043C00F59645 /* SwiftPoet.m */; };
+		CEB89DA41D6B08B700F59645 /* SwiftFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB89DA31D6B08B700F59645 /* SwiftFile.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CEB596091D89069900EBF8EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CEB89D8E1D6B043C00F59645 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CEB89D951D6B043C00F59645;
+			remoteInfo = SwiftPoet;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CE23B0271D87B54100479F31 /* SwiftTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftTest.swift; sourceTree = "<group>"; };
+		CE23B0C71D8818C800479F31 /* FieldSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FieldSpec.swift; sourceTree = "<group>"; };
+		CE52A8C21D923DE600C8DF84 /* EnumSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnumSpec.swift; sourceTree = "<group>"; };
+		CEA907C21D90E79700D8D6B3 /* CodeBlock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeBlock.swift; sourceTree = "<group>"; };
+		CEA907C61D90F3B700D8D6B3 /* sample_extension01.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = sample_extension01.txt; path = test_resources/sample_extension01.txt; sourceTree = "<group>"; };
+		CEA907CB1D91564C00D8D6B3 /* sample_enum01.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = sample_enum01.txt; path = test_resources/sample_enum01.txt; sourceTree = "<group>"; };
+		CEA907CC1D91564C00D8D6B3 /* sample_enum02.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = sample_enum02.txt; path = test_resources/sample_enum02.txt; sourceTree = "<group>"; };
+		CEA907CD1D91564C00D8D6B3 /* sample_struct01.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = sample_struct01.txt; path = test_resources/sample_struct01.txt; sourceTree = "<group>"; };
+		CEB596031D89069900EBF8EF /* SwiftPoet-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SwiftPoet-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEB596071D89069900EBF8EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CEB5960E1D890AC400EBF8EF /* String+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		CEB596101D89102A00EBF8EF /* FieldSpec_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FieldSpec_Tests.swift; sourceTree = "<group>"; };
+		CEB596131D8910AA00EBF8EF /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		CEB596181D893C3B00EBF8EF /* CodeWriter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeWriter.swift; sourceTree = "<group>"; };
+		CEB5961B1D895C2300EBF8EF /* MethodSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MethodSpec.swift; sourceTree = "<group>"; };
+		CEB5961E1D8A52AE00EBF8EF /* MethodSpec_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MethodSpec_Tests.swift; sourceTree = "<group>"; };
+		CEB596201D8A5CCC00EBF8EF /* TypeSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeSpec.swift; sourceTree = "<group>"; };
+		CEB596231D8A7E5500EBF8EF /* sample_class01.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = sample_class01.txt; path = test_resources/sample_class01.txt; sourceTree = "<group>"; };
+		CEB596281D8AB31C00EBF8EF /* StreamReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamReader.swift; sourceTree = "<group>"; };
+		CEB5962A1D8B989000EBF8EF /* sample_class02.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = sample_class02.txt; path = test_resources/sample_class02.txt; sourceTree = "<group>"; };
+		CEB5962C1D8B9B9600EBF8EF /* sample_protocol01.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = sample_protocol01.txt; path = test_resources/sample_protocol01.txt; sourceTree = "<group>"; };
+		CEB5962E1D8B9F3300EBF8EF /* sample_protocol02.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = sample_protocol02.txt; path = test_resources/sample_protocol02.txt; sourceTree = "<group>"; };
+		CEB596301D8BF84800EBF8EF /* SwiftFile_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftFile_Tests.swift; sourceTree = "<group>"; };
+		CEB89D961D6B043C00F59645 /* libSwiftPoet.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libSwiftPoet.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEB89D991D6B043C00F59645 /* SwiftPoet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftPoet.h; sourceTree = "<group>"; };
+		CEB89D9B1D6B043C00F59645 /* SwiftPoet.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SwiftPoet.m; sourceTree = "<group>"; };
+		CEB89DA21D6B08B700F59645 /* SwiftPoet-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftPoet-Bridging-Header.h"; sourceTree = "<group>"; };
+		CEB89DA31D6B08B700F59645 /* SwiftFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftFile.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CEB596001D89069900EBF8EF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEB596081D89069900EBF8EF /* libSwiftPoet.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CEB89D931D6B043C00F59645 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CEB596041D89069900EBF8EF /* SwiftPoet-Tests */ = {
+			isa = PBXGroup;
+			children = (
+				CEB596281D8AB31C00EBF8EF /* StreamReader.swift */,
+				CEB596071D89069900EBF8EF /* Info.plist */,
+				CEB596101D89102A00EBF8EF /* FieldSpec_Tests.swift */,
+				CEB5961E1D8A52AE00EBF8EF /* MethodSpec_Tests.swift */,
+				CEB596301D8BF84800EBF8EF /* SwiftFile_Tests.swift */,
+			);
+			path = "SwiftPoet-Tests";
+			sourceTree = "<group>";
+		};
+		CEB89D8D1D6B043C00F59645 = {
+			isa = PBXGroup;
+			children = (
+				CEA907CB1D91564C00D8D6B3 /* sample_enum01.txt */,
+				CEA907CC1D91564C00D8D6B3 /* sample_enum02.txt */,
+				CEA907CD1D91564C00D8D6B3 /* sample_struct01.txt */,
+				CEA907C61D90F3B700D8D6B3 /* sample_extension01.txt */,
+				CEB5962E1D8B9F3300EBF8EF /* sample_protocol02.txt */,
+				CEB5962C1D8B9B9600EBF8EF /* sample_protocol01.txt */,
+				CEB5962A1D8B989000EBF8EF /* sample_class02.txt */,
+				CEB596231D8A7E5500EBF8EF /* sample_class01.txt */,
+				CEB89D981D6B043C00F59645 /* SwiftPoet */,
+				CEB596041D89069900EBF8EF /* SwiftPoet-Tests */,
+				CEB89D971D6B043C00F59645 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CEB89D971D6B043C00F59645 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CEB89D961D6B043C00F59645 /* libSwiftPoet.dylib */,
+				CEB596031D89069900EBF8EF /* SwiftPoet-Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CEB89D981D6B043C00F59645 /* SwiftPoet */ = {
+			isa = PBXGroup;
+			children = (
+				CEB89D991D6B043C00F59645 /* SwiftPoet.h */,
+				CEB89D9B1D6B043C00F59645 /* SwiftPoet.m */,
+				CEB89DA31D6B08B700F59645 /* SwiftFile.swift */,
+				CEB89DA21D6B08B700F59645 /* SwiftPoet-Bridging-Header.h */,
+				CE23B0271D87B54100479F31 /* SwiftTest.swift */,
+				CE23B0C71D8818C800479F31 /* FieldSpec.swift */,
+				CEB5960E1D890AC400EBF8EF /* String+Extensions.swift */,
+				CEB596131D8910AA00EBF8EF /* Constants.swift */,
+				CEB596181D893C3B00EBF8EF /* CodeWriter.swift */,
+				CEB5961B1D895C2300EBF8EF /* MethodSpec.swift */,
+				CEB596201D8A5CCC00EBF8EF /* TypeSpec.swift */,
+				CEA907C21D90E79700D8D6B3 /* CodeBlock.swift */,
+				CE52A8C21D923DE600C8DF84 /* EnumSpec.swift */,
+			);
+			path = SwiftPoet;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		CEB89D941D6B043C00F59645 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEB89D9A1D6B043C00F59645 /* SwiftPoet.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		CEB596021D89069900EBF8EF /* SwiftPoet-Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CEB5960D1D89069900EBF8EF /* Build configuration list for PBXNativeTarget "SwiftPoet-Tests" */;
+			buildPhases = (
+				CEB595FF1D89069900EBF8EF /* Sources */,
+				CEB596001D89069900EBF8EF /* Frameworks */,
+				CEB596011D89069900EBF8EF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CEB5960A1D89069900EBF8EF /* PBXTargetDependency */,
+			);
+			name = "SwiftPoet-Tests";
+			productName = "SwiftPoet-Tests";
+			productReference = CEB596031D89069900EBF8EF /* SwiftPoet-Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		CEB89D951D6B043C00F59645 /* SwiftPoet */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CEB89D9F1D6B043C00F59645 /* Build configuration list for PBXNativeTarget "SwiftPoet" */;
+			buildPhases = (
+				CEB89D921D6B043C00F59645 /* Sources */,
+				CEB89D931D6B043C00F59645 /* Frameworks */,
+				CEB89D941D6B043C00F59645 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwiftPoet;
+			productName = SwiftPoet;
+			productReference = CEB89D961D6B043C00F59645 /* libSwiftPoet.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CEB89D8E1D6B043C00F59645 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = Jupiter;
+				TargetAttributes = {
+					CEB596021D89069900EBF8EF = {
+						CreatedOnToolsVersion = 7.3;
+					};
+					CEB89D951D6B043C00F59645 = {
+						CreatedOnToolsVersion = 7.3;
+					};
+				};
+			};
+			buildConfigurationList = CEB89D911D6B043C00F59645 /* Build configuration list for PBXProject "SwiftPoet" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CEB89D8D1D6B043C00F59645;
+			productRefGroup = CEB89D971D6B043C00F59645 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CEB89D951D6B043C00F59645 /* SwiftPoet */,
+				CEB596021D89069900EBF8EF /* SwiftPoet-Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CEB596011D89069900EBF8EF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEA907D01D91564C00D8D6B3 /* sample_struct01.txt in Resources */,
+				CEA907CE1D91564C00D8D6B3 /* sample_enum01.txt in Resources */,
+				CEA907C71D90F3B700D8D6B3 /* sample_extension01.txt in Resources */,
+				CEA907CF1D91564C00D8D6B3 /* sample_enum02.txt in Resources */,
+				CEB5962F1D8B9F3300EBF8EF /* sample_protocol02.txt in Resources */,
+				CEB596241D8A7E5500EBF8EF /* sample_class01.txt in Resources */,
+				CEB5962D1D8B9B9600EBF8EF /* sample_protocol01.txt in Resources */,
+				CEB5962B1D8B989000EBF8EF /* sample_class02.txt in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CEB595FF1D89069900EBF8EF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEA907C51D90E89C00D8D6B3 /* CodeBlock.swift in Sources */,
+				CEB596221D8A5CCC00EBF8EF /* TypeSpec.swift in Sources */,
+				CEB596161D8910E700EBF8EF /* SwiftFile.swift in Sources */,
+				CE52A8C41D923E8000C8DF84 /* EnumSpec.swift in Sources */,
+				CEB5961A1D893C3B00EBF8EF /* CodeWriter.swift in Sources */,
+				CEB5961D1D895C2300EBF8EF /* MethodSpec.swift in Sources */,
+				CEB596291D8AB31C00EBF8EF /* StreamReader.swift in Sources */,
+				CEB596171D89204900EBF8EF /* String+Extensions.swift in Sources */,
+				CEB596111D89102A00EBF8EF /* FieldSpec_Tests.swift in Sources */,
+				CEB596121D89106000EBF8EF /* FieldSpec.swift in Sources */,
+				CEB596151D8910AA00EBF8EF /* Constants.swift in Sources */,
+				CEB5961F1D8A52AE00EBF8EF /* MethodSpec_Tests.swift in Sources */,
+				CEB596311D8BF84800EBF8EF /* SwiftFile_Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CEB89D921D6B043C00F59645 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEB596211D8A5CCC00EBF8EF /* TypeSpec.swift in Sources */,
+				CEB596191D893C3B00EBF8EF /* CodeWriter.swift in Sources */,
+				CE52A8C31D923DE600C8DF84 /* EnumSpec.swift in Sources */,
+				CEA907C41D90E89B00D8D6B3 /* CodeBlock.swift in Sources */,
+				CE23B0281D87B54100479F31 /* SwiftTest.swift in Sources */,
+				CEB5960F1D890AC400EBF8EF /* String+Extensions.swift in Sources */,
+				CEB89D9C1D6B043C00F59645 /* SwiftPoet.m in Sources */,
+				CE23B0C81D8818C800479F31 /* FieldSpec.swift in Sources */,
+				CEB89DA41D6B08B700F59645 /* SwiftFile.swift in Sources */,
+				CEB596141D8910AA00EBF8EF /* Constants.swift in Sources */,
+				CEB5961C1D895C2300EBF8EF /* MethodSpec.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CEB5960A1D89069900EBF8EF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CEB89D951D6B043C00F59645 /* SwiftPoet */;
+			targetProxy = CEB596091D89069900EBF8EF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		CEB5960B1D89069900EBF8EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "SwiftPoet-Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "jupiter.vn.SwiftPoet-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CEB5960C1D89069900EBF8EF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "SwiftPoet-Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "jupiter.vn.SwiftPoet-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		CEB89D9D1D6B043C00F59645 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		CEB89D9E1D6B043C00F59645 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		CEB89DA01D6B043C00F59645 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				EXECUTABLE_PREFIX = lib;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SwiftPoet/SwiftPoet-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CEB89DA11D6B043C00F59645 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				EXECUTABLE_PREFIX = lib;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SwiftPoet/SwiftPoet-Bridging-Header.h";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CEB5960D1D89069900EBF8EF /* Build configuration list for PBXNativeTarget "SwiftPoet-Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CEB5960B1D89069900EBF8EF /* Debug */,
+				CEB5960C1D89069900EBF8EF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CEB89D911D6B043C00F59645 /* Build configuration list for PBXProject "SwiftPoet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CEB89D9D1D6B043C00F59645 /* Debug */,
+				CEB89D9E1D6B043C00F59645 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CEB89D9F1D6B043C00F59645 /* Build configuration list for PBXNativeTarget "SwiftPoet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CEB89DA01D6B043C00F59645 /* Debug */,
+				CEB89DA11D6B043C00F59645 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CEB89D8E1D6B043C00F59645 /* Project object */;
+}

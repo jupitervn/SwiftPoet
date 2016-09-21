@@ -1,0 +1,5 @@
+protocol TestProtocol {
+  func testProtocolFunc()
+  func testProtocolFunc(value: Int)
+  func testProtocolFunc(value: String = "abc")
+}

@@ -1,0 +1,9 @@
+class TestClass {
+  let field01: Int = 1
+  let field02: String = "abc"
+  var field03 = "abc"
+
+  init(name: String) {
+  }
+
+}
