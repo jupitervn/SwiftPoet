@@ -1,8 +1,13 @@
 # SwiftPoet
 
-SwiftPoet is a library that help Swift developers easy to generate Swift source code
+SwiftPoet is a library that is inspired from https://github.com/square/javapoet to help Swift developers easy to generate Swift source code. 
 
 ## Instruction
+
+### Cocoapods:
+```
+pod 'SwiftPoet', :git => 'git@github.com:jupitervn/SwiftPoet.git'
+```
 
 ### Swift file: 
 In order to generate swift file, you can use `SwiftFile.newFile()` or `SwiftFile.newSingleClass()` method.
