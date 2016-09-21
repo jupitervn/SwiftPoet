@@ -25,9 +25,10 @@ Pod::Spec.new do |s|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description  = <<-DESC
+		A Swift library that helps developer to generate swift source code
                    DESC
 
-  s.homepage     = "http://EXAMPLE/SwiftPoet"
+  s.homepage     = "https://github.com/jupitervn/SwiftPoet"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -38,7 +39,7 @@ Pod::Spec.new do |s|
   #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
   #
 
-  s.license      = "MIT (example)"
+  s.license      = "MIT"
   # s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
 
 
@@ -52,23 +53,20 @@ Pod::Spec.new do |s|
   #  profile URL.
   #
 
-  s.author             = { "Jupiter2359media" => "cao.vu@2359media.com.vn" }
-  # Or just: s.author    = "Jupiter2359media"
-  # s.authors            = { "Jupiter2359media" => "cao.vu@2359media.com.vn" }
-  # s.social_media_url   = "http://twitter.com/Jupiter2359media"
+  s.author             = { "JupiterVN" => "vu.cao.duy@gmail.com" }
 
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
   #  If this Pod runs only on iOS or OS X, then specify the platform and
   #  the deployment target. You can optionally include the target after the platform.
   #
-
+  s.platform = :osx
   # s.platform     = :ios
   # s.platform     = :ios, "5.0"
 
   #  When using multiple platforms
   # s.ios.deployment_target = "5.0"
-  # s.osx.deployment_target = "10.7"
+  s.osx.deployment_target = "10.9"
   # s.watchos.deployment_target = "2.0"
   # s.tvos.deployment_target = "9.0"
 
@@ -79,7 +77,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "http://EXAMPLE/SwiftPoet.git", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/jupitervn/SwiftPoet.git", :tag => "#{s.version}" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
