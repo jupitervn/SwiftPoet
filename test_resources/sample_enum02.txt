@@ -1,4 +1,4 @@
 enum Barcode {
   case upc(Int, Int, Int, Int)
-  case qrCode(String)
+  case qrCode(code: String)
 }

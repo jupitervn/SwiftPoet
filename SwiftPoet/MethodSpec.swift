@@ -38,13 +38,9 @@ public class MethodSpec : SwiftComponentWriter {
     return MethodSpecBuilder(name: "init?")
   }
   
-  public static func convenienceInitBuilder(isOptional: Bool = false) -> MethodSpecBuilder {
-    return MethodSpecBuilder(name: "init\(isOptional ? "?" : "")").modifiers(TypeModifier.CONVENIENCE)
-  }
-  
   func emit(codeWriter: CodeWriter) {
     codeWriter.emitModifiers(modifiers)
-    codeWriter.emit("init" == name ? "" : "func ")
+    codeWriter.emit("init" == name || "init?" == name ? "" : "func ")
       .emit(name)
       .emit("(")
     
@@ -115,23 +111,32 @@ public class MethodSpecBuilder {
 }
 
 public class ParameterSpec : SwiftComponentWriter {
-  let shouldIgnoreName: Bool
   let name:String?
   let paramType: String
   let defaultValue: String?
+  let argLabel: String?
+  let isInOut: Bool
   
-  public init(name:String? = nil, paramType: String, defaultValue:String? = nil, ignoreName: Bool = false) {
+  public init(_ name:String?, paramType: String, defaultValue: String? = nil, argLabel: String? = nil, isInOut: Bool = false) {
     self.name = name
     self.paramType = paramType
     self.defaultValue = defaultValue
-    self.shouldIgnoreName = ignoreName
+    if (argLabel == nil && name == nil) {
+      self.argLabel = "_"
+    } else {
+      self.argLabel = argLabel
+    }
+    self.isInOut = isInOut
   }
   
   func emit(codeWriter: CodeWriter) {
     codeWriter
-      .emit(shouldIgnoreName || name == nil ? "_ " : "")
+      .emit(argLabel?.append(" ") ?? "")
       .emit(name ?? "")
-      .emit(": \(paramType)")
+      .emit(":")
+      .emit(isInOut ? " inout" : "")
+      .emit(" \(paramType)")
+    
     if let defaultValue = defaultValue {
       codeWriter.emit(" = \(defaultValue)")
     }

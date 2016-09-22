@@ -1,5 +1,5 @@
-enum CompassPoint {
-  case north
+enum CompassPoint : Int {
+  case north = 1
   case south
   case east
   case west

@@ -17,7 +17,7 @@ class TestClass : SuperClass {
     }
   }
   
-  func testFunc2(param: String = "abc", param2: Int) {
+  func testFunc2(param: String = "abc", param2: inout Int) {
     print("abc")
   }
 
