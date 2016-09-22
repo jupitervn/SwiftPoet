@@ -11,12 +11,14 @@ import Foundation
 public class EnumConstantSpec : SwiftComponentWriter {
   let name: String
   let caseParams : [EnumTupleSpec]
+  let value: String?
   let isIndirect: Bool
   
-  init(name: String, caseParams: [EnumTupleSpec] = [], isIndirect: Bool = false) {
+  init(name: String, value: String?, caseParams: [EnumTupleSpec] = [], isIndirect: Bool = false) {
     self.name = name
     self.caseParams = caseParams
     self.isIndirect = isIndirect
+    self.value = value
   }
   
   func emit(codeWriter: CodeWriter) {
@@ -34,6 +36,10 @@ public class EnumConstantSpec : SwiftComponentWriter {
       })
       codeWriter.emit(")")
     }
+    if let value = value {
+      codeWriter.emit(" = \(value)")
+    }
+    
   }
   
   public static func newEnumValue(name: String) -> EnumConstantSpecBuilder {
@@ -45,6 +51,7 @@ public class EnumConstantSpecBuilder {
   let name: String
   var isIndirect: Bool = false
   var tupleSpecs = [EnumTupleSpec]()
+  var enumValue: String? = nil
   
   public init(name: String) {
     self.name = name
@@ -55,13 +62,18 @@ public class EnumConstantSpecBuilder {
     return self
   }
   
+  public func value(value: String) -> EnumConstantSpecBuilder {
+    self.enumValue = value
+    return self
+  }
+  
   public func indirect() -> EnumConstantSpecBuilder {
     isIndirect = true
     return self
   }
   
   public func build() -> EnumConstantSpec {
-    return EnumConstantSpec(name: name, caseParams: tupleSpecs, isIndirect: isIndirect)
+    return EnumConstantSpec(name: name, value: enumValue, caseParams: tupleSpecs, isIndirect: isIndirect)
   }
 }
 

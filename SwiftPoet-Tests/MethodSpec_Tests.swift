@@ -34,8 +34,8 @@ class MethodSpec_Tests: XCTestCase {
   
   func test_shouldEmitParams() {
     let methodSpec = MethodSpecBuilder(name: "function")
-      .addParam(ParameterSpec(name: "param1", paramType: "Int"))
-      .addParam(ParameterSpec(name: "param2", paramType: "String", defaultValue: "\"value\""))
+      .addParam(ParameterSpec("param1", paramType: "Int"))
+      .addParam(ParameterSpec("param2", paramType: "String", defaultValue: "\"value\""))
       .build()
     methodSpec.emit(codeWriter)
     XCTAssertEqual(outputStream.toString(), "func function(param1: Int, param2: String = \"value\") {\n}\n")
@@ -43,8 +43,8 @@ class MethodSpec_Tests: XCTestCase {
   
   func test_shouldEmitReturnType() {
     let methodSpec = MethodSpecBuilder(name: "function")
-      .addParam(ParameterSpec(name: "param1", paramType: "Int"))
-      .addParam(ParameterSpec(name: "param2", paramType: "String", defaultValue: "\"value\""))
+      .addParam(ParameterSpec("param1", paramType: "Int"))
+      .addParam(ParameterSpec("param2", paramType: "String", defaultValue: "\"value\""))
       .returnType("String")
       .build()
     methodSpec.emit(codeWriter)
@@ -53,8 +53,8 @@ class MethodSpec_Tests: XCTestCase {
   
   func test_shouldEmitCodeBlockInside() {
     let methodSpec = MethodSpecBuilder(name: "function")
-      .addParam(ParameterSpec(name: "param1", paramType: "Int"))
-      .addParam(ParameterSpec(name: "param2", paramType: "String", defaultValue: "\"value\""))
+      .addParam(ParameterSpec("param1", paramType: "Int"))
+      .addParam(ParameterSpec("param2", paramType: "String", defaultValue: "\"value\""))
       .returnType("String")
       .code("return \"test\"\n")
       .build()

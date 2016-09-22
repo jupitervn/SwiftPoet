@@ -26,7 +26,7 @@ class SwiftFile_Tests: XCTestCase {
       .addProperty(FieldSpecBuilder(name: "field01", fieldType: "Int").initWith("1").build())
       .addProperty(FieldSpecBuilder(name: "field02", fieldType: "String").initWith("\"abc\"").build())
       .addProperty(FieldSpecBuilder(name: "field03").modifiable().initWith("\"abc\"").build())
-      .addMethod(MethodSpec.initBuilder().addParam(ParameterSpec(name: "name", paramType: "String")).build())
+      .addMethod(MethodSpec.initBuilder().addParam(ParameterSpec("name", paramType: "String")).build())
       .build()
     
     let swiftFile = SwiftFile
@@ -42,7 +42,7 @@ class SwiftFile_Tests: XCTestCase {
       .addProperty(FieldSpecBuilder(name: "field01", fieldType: "Int").initWith("1").build())
       .addProperty(FieldSpecBuilder(name: "field02", fieldType: "String").initWith("\"abc\"").build())
       .addProperty(FieldSpecBuilder(name: "field03").modifiable().initWith("\"abc\"").build())
-      .addMethod(MethodSpec.initBuilder().addParam(ParameterSpec(name: "name", paramType: "String")).build())
+      .addMethod(MethodSpec.initBuilder().addParam(ParameterSpec("name", paramType: "String")).build())
       .addMethod(MethodSpec.methodBuilder("testFunc").build())
       .superClass("SuperClass")
     let codeBlock = CodeBlock.newCodeBlock() { codeBlock in
@@ -53,14 +53,14 @@ class SwiftFile_Tests: XCTestCase {
         .endControlFlow()
     }
     let method = MethodSpec.methodBuilder("testFunc1")
-      .addParam(ParameterSpec(name: "param", paramType: "String"))
+      .addParam(ParameterSpec("param", paramType: "String"))
       .returnType("Int")
       .code(codeBlock)
       .build()
     classSpecBuilder.addMethod(method)
     let methodWithCode = MethodSpec.methodBuilder("testFunc2")
-      .addParam(ParameterSpec(name: "param", paramType: "String", defaultValue: "\"abc\""))
-      .addParam(ParameterSpec(name: "param2", paramType: "Int"))
+      .addParam(ParameterSpec("param", paramType: "String", defaultValue: "\"abc\""))
+      .addParam(ParameterSpec("param2", paramType: "Int"))
       .code("print(\"abc\")\n")
       .build()
     
@@ -78,8 +78,8 @@ class SwiftFile_Tests: XCTestCase {
   func test_shouldEmitProtocol() {
     let classSpec = try? TypeSpec.newProtocol("TestProtocol")
       .addMethod(MethodSpec.methodBuilder("testProtocolFunc", isAbstract: true).build())
-      .addMethod(MethodSpec.methodBuilder("testProtocolFunc", isAbstract: true).addParam(ParameterSpec(name: "value", paramType: "Int")).build())
-      .addMethod(MethodSpec.methodBuilder("testProtocolFunc", isAbstract: true).addParam(ParameterSpec(name: "value", paramType: "String", defaultValue: "\"abc\"")).build())
+      .addMethod(MethodSpec.methodBuilder("testProtocolFunc", isAbstract: true).addParam(ParameterSpec("value", paramType: "Int")).build())
+      .addMethod(MethodSpec.methodBuilder("testProtocolFunc", isAbstract: true).addParam(ParameterSpec("value", paramType: "String", defaultValue: "\"abc\"")).build())
       .build()
     
     let swiftFile = SwiftFile.newSingleClass("sample_protocol01_output", classSpec: classSpec!)
@@ -93,8 +93,8 @@ class SwiftFile_Tests: XCTestCase {
       let classSpec = try TypeSpec.newProtocol("TestProtocol")
         .superClass("SuperTestProtocol", "SuperTestProtocol2")
         .addMethod(MethodSpec.methodBuilder("testProtocolFunc", isAbstract: true).build())
-        .addMethod(MethodSpec.methodBuilder("testProtocolFunc", isAbstract: true).addParam(ParameterSpec(name: "value", paramType: "Int")).build())
-        .addMethod(MethodSpec.methodBuilder("testProtocolFunc", isAbstract: true).addParam(ParameterSpec(name: "value", paramType: "String", defaultValue: "\"abc\"")).build())
+        .addMethod(MethodSpec.methodBuilder("testProtocolFunc", isAbstract: true).addParam(ParameterSpec("value", paramType: "Int")).build())
+        .addMethod(MethodSpec.methodBuilder("testProtocolFunc", isAbstract: true).addParam(ParameterSpec("value", paramType: "String", defaultValue: "\"abc\"")).build())
         .build()
       let swiftFile = SwiftFile.newSingleClass("sample_protocol02_output", classSpec: classSpec)
         .build().writeTo(testOutputDir)
@@ -111,7 +111,7 @@ class SwiftFile_Tests: XCTestCase {
       let method = MethodSpec
         .methodBuilder("prepend")
         .modifiers(TypeModifier.PUBLIC)
-        .addParam(ParameterSpec(name: "string", paramType: "String"))
+        .addParam(ParameterSpec("string", paramType: "String"))
         .code(CodeBlock.newCodeBlock("return string + self\n"))
         .returnType("String")
         .build()
@@ -119,7 +119,7 @@ class SwiftFile_Tests: XCTestCase {
       let method2 = MethodSpec
         .methodBuilder("append")
         .modifiers(TypeModifier.PUBLIC)
-        .addParam(ParameterSpec(name: "string", paramType: "String"))
+        .addParam(ParameterSpec("string", paramType: "String"))
         .code(CodeBlock.newCodeBlock("return self + string\n"))
         .returnType("String")
         .build()
@@ -130,8 +130,8 @@ class SwiftFile_Tests: XCTestCase {
         .build()
       
       let operatorMethod = MethodSpec.methodBuilder("*")
-        .addParam(ParameterSpec(name: "left", paramType: "String"))
-        .addParam(ParameterSpec(name: "right", paramType: "Int"))
+        .addParam(ParameterSpec("left", paramType: "String"))
+        .addParam(ParameterSpec("right", paramType: "Int"))
         .returnType("String")
         .code(CodeBlock.newCodeBlock() { codeBlock in
           codeBlock.beginControlFlow("if right <= 0")
@@ -161,7 +161,8 @@ class SwiftFile_Tests: XCTestCase {
   func test_shouldEmitSimpleEnum() {
     do {
       let classSpec = try TypeSpec.newEnum("CompassPoint")
-        .addEnumConstant(EnumConstantSpec.newEnumValue("north").build())
+        .superClass("Int")
+        .addEnumConstant(EnumConstantSpec.newEnumValue("north").value("1").build())
         .addEnumConstant(EnumConstantSpec.newEnumValue("south").build())
         .addEnumConstant(EnumConstantSpec.newEnumValue("east").build())
         .addEnumConstant(EnumConstantSpec.newEnumValue("west").build())
@@ -186,7 +187,7 @@ class SwiftFile_Tests: XCTestCase {
         .build()
       let classSpec = try TypeSpec.newEnum("Barcode")
         .addEnumConstant(enumConstant)
-        .addEnumConstant(EnumConstantSpec.newEnumValue("qrCode").addTuple(EnumTupleSpec(type: "String")).build())
+        .addEnumConstant(EnumConstantSpec.newEnumValue("qrCode").addTuple(EnumTupleSpec(name: "code", type: "String")).build())
         .build()
       let swiftFile = SwiftFile.newSingleClass("sample_enum02_output", classSpec: classSpec)
         .build().writeTo(testOutputDir)

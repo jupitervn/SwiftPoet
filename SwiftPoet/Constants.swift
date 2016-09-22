@@ -11,7 +11,6 @@ public protocol Modifier {
     func value() -> String
 }
 
-
 public enum FieldModifier: String, Modifier {
   case PUBLIC = "public"
   case PRIVATE = "private"
@@ -32,6 +31,7 @@ public enum TypeModifier: String, Modifier {
   case OVERRIDE = "override"
   case INDIRECT = "indirect"
   case CONVENIENCE = "convenience"
+  case MUTATING = "mutating"
   public func value() -> String {
     return rawValue
   }
