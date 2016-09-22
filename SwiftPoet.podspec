@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "SwiftPoet"
-  s.version      = "0.0.1"
+  s.version      = "0.2.0"
   s.summary      = "A library that writes Swift poem"
 
   # This description is used to generate tags and improve search results.
