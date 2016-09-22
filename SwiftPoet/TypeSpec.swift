@@ -187,7 +187,7 @@ public class TypeSpecBuilder {
   private func checkMethodOfType() throws {
     if (type == TypeKind.PROTOCOL) {
       for method in typeMethod {
-        if (!method.isAbstractMethod) {
+        if (method.methodType == .NORMAL) {
           throw TypeBuilderError.InvalidMethodType(cause: "Only abstract method is allowed inside protocol")
         }
       }

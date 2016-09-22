@@ -117,9 +117,9 @@ class SwiftFile_Tests: XCTestCase {
   
   func test_shouldEmitProtocol() {
     let classSpec = try? TypeSpec.newProtocol("TestProtocol")
-      .addMethod(MethodSpec.methodBuilder("testProtocolFunc", isAbstract: true).build())
-      .addMethod(MethodSpec.methodBuilder("testProtocolFunc", isAbstract: true).addParam(ParameterSpec("value", paramType: "Int")).build())
-      .addMethod(MethodSpec.methodBuilder("testProtocolFunc", isAbstract: true).addParam(ParameterSpec("value", paramType: "String", defaultValue: "\"abc\"")).build())
+      .addMethod(MethodSpec.abstractMethodBuilder("testProtocolFunc").build())
+      .addMethod(MethodSpec.abstractMethodBuilder("testProtocolFunc").addParam(ParameterSpec("value", paramType: "Int")).build())
+      .addMethod(MethodSpec.abstractMethodBuilder("testProtocolFunc").addParam(ParameterSpec("value", paramType: "String", defaultValue: "\"abc\"")).build())
       .build()
     
     let swiftFile = SwiftFile.newSingleClass("sample_protocol01_output", classSpec: classSpec!)
@@ -132,9 +132,9 @@ class SwiftFile_Tests: XCTestCase {
     do {
       let classSpec = try TypeSpec.newProtocol("TestProtocol")
         .superClass("SuperTestProtocol", "SuperTestProtocol2")
-        .addMethod(MethodSpec.methodBuilder("testProtocolFunc", isAbstract: true).build())
-        .addMethod(MethodSpec.methodBuilder("testProtocolFunc", isAbstract: true).addParam(ParameterSpec("value", paramType: "Int")).build())
-        .addMethod(MethodSpec.methodBuilder("testProtocolFunc", isAbstract: true).addParam(ParameterSpec("value", paramType: "String", defaultValue: "\"abc\"")).build())
+        .addMethod(MethodSpec.abstractMethodBuilder("testProtocolFunc").build())
+        .addMethod(MethodSpec.abstractMethodBuilder("testProtocolFunc").addParam(ParameterSpec("value", paramType: "Int")).build())
+        .addMethod(MethodSpec.abstractMethodBuilder("testProtocolFunc").addParam(ParameterSpec("value", paramType: "String", defaultValue: "\"abc\"")).build())
         .build()
       let swiftFile = SwiftFile.newSingleClass("sample_protocol02_output", classSpec: classSpec)
         .build().writeTo(testOutputDir)

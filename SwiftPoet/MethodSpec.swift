@@ -7,47 +7,67 @@
 //
 
 import Foundation
+
+public enum MethodType: String {
+  case INIT = "init"
+  case OPTIONAL_INIT = "init?"
+  case SUBSCRIPT = "subscript"
+  case NORMAL = "normal"
+  case ABSTRACT = "abstract"
+}
+
 //For method
 public class MethodSpec : SwiftComponentWriter {
+  let methodType: MethodType
   let name:String
   let modifiers: [TypeModifier]
   let parameters: [ParameterSpec]?
   let returnType: String?
   let methodBlock: CodeBlock?
-  let isAbstractMethod: Bool
   let genericClause: String?
   let whereClause: String?
   let isErrorThrown: Bool
   
-  init(name: String, isAbstract: Bool = false, modifiers: [TypeModifier] = [], parameters: [ParameterSpec]? = nil,
+  init(_ methodType: MethodType, name: String, modifiers: [TypeModifier] = [], parameters: [ParameterSpec]? = nil,
        returnType: String? = nil, genericClause: String? = nil, whereClause: String? = nil, methodBlock: CodeBlock? = nil, isErrorThrown : Bool = false) {
+    self.methodType = methodType
     self.name = name
     self.modifiers = modifiers
     self.parameters = parameters
     self.returnType = returnType
     self.methodBlock = methodBlock
-    self.isAbstractMethod = isAbstract
     self.genericClause = genericClause
     self.whereClause = whereClause
     self.isErrorThrown = isErrorThrown
   }
   
-  public static func methodBuilder(name: String, isAbstract: Bool = false) -> MethodSpecBuilder {
-    return MethodSpecBuilder(name: name, isAbstract: isAbstract)
+  public static func methodBuilder(name: String) -> MethodSpecBuilder {
+    return MethodSpecBuilder(MethodType.NORMAL, name: name)
+  }
+  
+  public static func abstractMethodBuilder(name: String) -> MethodSpecBuilder {
+    return MethodSpecBuilder(MethodType.ABSTRACT, name: name)
   }
   
   public static func initBuilder() -> MethodSpecBuilder {
-    return MethodSpecBuilder(name: "init")
+    return MethodSpecBuilder(MethodType.INIT, name: "init")
   }
   
   public static func optionalInitBuilder() -> MethodSpecBuilder {
-    return MethodSpecBuilder(name: "init?")
+    return MethodSpecBuilder(MethodType.OPTIONAL_INIT, name: "init?")
+  }
+  
+  public static func subscriptBuilder() -> MethodSpecBuilder {
+    return MethodSpecBuilder(MethodType.SUBSCRIPT, name: "subscript")
   }
   
   func emit(codeWriter: CodeWriter) {
     codeWriter.emitModifiers(modifiers)
-    codeWriter.emit("init" == name || "init?" == name ? "" : "func ")
-      .emit(name)
+    if (methodType == .NORMAL || methodType == .ABSTRACT) {
+      codeWriter.emit("func \(name)")
+    } else {
+      codeWriter.emit(methodType.rawValue)
+    }
     if let genericClause = genericClause {
       codeWriter.emit("<\(genericClause)>")
     }
@@ -72,7 +92,7 @@ public class MethodSpec : SwiftComponentWriter {
     if let whereClause = whereClause {
       codeWriter.emit(" where \(whereClause)")
     }
-    if (!isAbstractMethod) {
+    if (methodType != .ABSTRACT) {
       codeWriter.emit(" {\n")
       if let methodBlock = methodBlock {
         codeWriter.indent()
@@ -85,19 +105,19 @@ public class MethodSpec : SwiftComponentWriter {
 }
 
 public class MethodSpecBuilder {
+  let methodType: MethodType
   let name: String
   var returnType: String?
   var paramList: [ParameterSpec] = [ParameterSpec]()
   var modifiers = [TypeModifier]()
   var methodCode: CodeBlock?
-  let isAbstract: Bool
   var genericTypeClause: String?
   var whereClause: String?
   var isErrorThrown = false
   
-  init(name: String, isAbstract: Bool = false) {
+  init(_ methodType: MethodType = .NORMAL, name: String) {
+    self.methodType = methodType
     self.name = name
-    self.isAbstract = isAbstract
   }
   
   public func returnType(returnType: String) -> MethodSpecBuilder {
@@ -140,7 +160,7 @@ public class MethodSpecBuilder {
   }
   
   public func build() -> MethodSpec {
-    return MethodSpec(name: name, isAbstract: isAbstract, modifiers: modifiers,
+    return MethodSpec(methodType, name: name, modifiers: modifiers,
                       parameters: paramList, returnType: returnType, methodBlock: methodCode,
                       genericClause: genericTypeClause, whereClause: whereClause, isErrorThrown: isErrorThrown)
   }

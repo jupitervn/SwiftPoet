@@ -15,3 +15,7 @@ class ABC {
     y += deltaY
   }
 }
+
+protocol DEF {
+  init()
+}
