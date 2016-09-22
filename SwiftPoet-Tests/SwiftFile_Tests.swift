@@ -75,6 +75,46 @@ class SwiftFile_Tests: XCTestCase {
     
   }
   
+  func test_shouldEmitGenericMethodAndClass() {
+    let genericMethod = MethodSpec
+      .methodBuilder("findIndex")
+      .genericType("T")
+      .addParam(ParameterSpec("valueToFind", paramType: "T", argLabel: "of"))
+      .addParam(ParameterSpec("array", paramType: "[T]", argLabel: "in"))
+      .returnType("Int?")
+      .code("return nil\n")
+      .build()
+    let pushMethod = MethodSpec
+      .methodBuilder("push")
+      .modifiers(TypeModifier.MUTATING)
+      .addParam(ParameterSpec("item", paramType: "Element", argLabel: "_"))
+      .code("items.append(item)\n")
+      .build()
+    
+    let popMethod = MethodSpec
+      .methodBuilder("pop")
+      .modifiers(TypeModifier.MUTATING)
+      .returnType("Element")
+      .code("return items.removeLast()\n")
+      .build()
+    
+    let genericStruct = try? TypeSpec.newStruct("Stack")
+      .genericClause("Element")
+      .addProperty(FieldSpecBuilder(name: "items").modifiable().initWith("[Element]()").build())
+      .addMethod(pushMethod)
+      .addMethod(popMethod)
+      .build()
+    
+    let swiftFile = SwiftFile
+      .newFile("sample_class03_output")
+      .addMethod(genericMethod)
+      .addType(genericStruct!)
+      .build()
+      .writeTo(testOutputDir)
+    
+    XCTAssertTrue(isSourceFileEqual(getResourceFilePath("sample_class03")!, path2: swiftFile!))
+  }
+  
   func test_shouldEmitProtocol() {
     let classSpec = try? TypeSpec.newProtocol("TestProtocol")
       .addMethod(MethodSpec.methodBuilder("testProtocolFunc", isAbstract: true).build())

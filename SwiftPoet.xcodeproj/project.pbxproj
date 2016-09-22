@@ -11,6 +11,7 @@
 		CE52A8C31D923DE600C8DF84 /* EnumSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE52A8C21D923DE600C8DF84 /* EnumSpec.swift */; };
 		CE52A8C41D923E8000C8DF84 /* EnumSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE52A8C21D923DE600C8DF84 /* EnumSpec.swift */; };
 		CE8F123F1D938A54007C3BF0 /* Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F123E1D938A54007C3BF0 /* Example.swift */; };
+		CE8F12411D93B28A007C3BF0 /* sample_class03.txt in Resources */ = {isa = PBXBuildFile; fileRef = CE8F12401D93B270007C3BF0 /* sample_class03.txt */; };
 		CEA907C41D90E89B00D8D6B3 /* CodeBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA907C21D90E79700D8D6B3 /* CodeBlock.swift */; };
 		CEA907C51D90E89C00D8D6B3 /* CodeBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA907C21D90E79700D8D6B3 /* CodeBlock.swift */; };
 		CEA907C71D90F3B700D8D6B3 /* sample_extension01.txt in Resources */ = {isa = PBXBuildFile; fileRef = CEA907C61D90F3B700D8D6B3 /* sample_extension01.txt */; };
@@ -57,6 +58,7 @@
 		CE23B0C71D8818C800479F31 /* FieldSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FieldSpec.swift; sourceTree = "<group>"; };
 		CE52A8C21D923DE600C8DF84 /* EnumSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnumSpec.swift; sourceTree = "<group>"; };
 		CE8F123E1D938A54007C3BF0 /* Example.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Example.swift; sourceTree = "<group>"; };
+		CE8F12401D93B270007C3BF0 /* sample_class03.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = sample_class03.txt; path = test_resources/sample_class03.txt; sourceTree = "<group>"; };
 		CEA907C21D90E79700D8D6B3 /* CodeBlock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeBlock.swift; sourceTree = "<group>"; };
 		CEA907C61D90F3B700D8D6B3 /* sample_extension01.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = sample_extension01.txt; path = test_resources/sample_extension01.txt; sourceTree = "<group>"; };
 		CEA907CB1D91564C00D8D6B3 /* sample_enum01.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = sample_enum01.txt; path = test_resources/sample_enum01.txt; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 		CEB89D8D1D6B043C00F59645 = {
 			isa = PBXGroup;
 			children = (
+				CE8F12401D93B270007C3BF0 /* sample_class03.txt */,
 				CEA907CB1D91564C00D8D6B3 /* sample_enum01.txt */,
 				CEA907CC1D91564C00D8D6B3 /* sample_enum02.txt */,
 				CEA907CD1D91564C00D8D6B3 /* sample_struct01.txt */,
@@ -257,6 +260,7 @@
 				CEA907CF1D91564C00D8D6B3 /* sample_enum02.txt in Resources */,
 				CEB5962F1D8B9F3300EBF8EF /* sample_protocol02.txt in Resources */,
 				CEB596241D8A7E5500EBF8EF /* sample_class01.txt in Resources */,
+				CE8F12411D93B28A007C3BF0 /* sample_class03.txt in Resources */,
 				CEB5962D1D8B9B9600EBF8EF /* sample_protocol01.txt in Resources */,
 				CEB5962B1D8B989000EBF8EF /* sample_class02.txt in Resources */,
 			);

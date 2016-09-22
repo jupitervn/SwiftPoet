@@ -15,15 +15,21 @@ public class MethodSpec : SwiftComponentWriter {
   let returnType: String?
   let methodBlock: CodeBlock?
   let isAbstractMethod: Bool
+  let genericClause: String?
+  let whereClause: String?
+  let isErrorThrown: Bool
   
   init(name: String, isAbstract: Bool = false, modifiers: [TypeModifier] = [], parameters: [ParameterSpec]? = nil,
-       returnType: String? = nil, methodBlock: CodeBlock? = nil) {
+       returnType: String? = nil, genericClause: String? = nil, whereClause: String? = nil, methodBlock: CodeBlock? = nil, isErrorThrown : Bool = false) {
     self.name = name
     self.modifiers = modifiers
     self.parameters = parameters
     self.returnType = returnType
     self.methodBlock = methodBlock
     self.isAbstractMethod = isAbstract
+    self.genericClause = genericClause
+    self.whereClause = whereClause
+    self.isErrorThrown = isErrorThrown
   }
   
   public static func methodBuilder(name: String, isAbstract: Bool = false) -> MethodSpecBuilder {
@@ -42,7 +48,11 @@ public class MethodSpec : SwiftComponentWriter {
     codeWriter.emitModifiers(modifiers)
     codeWriter.emit("init" == name || "init?" == name ? "" : "func ")
       .emit(name)
-      .emit("(")
+    if let genericClause = genericClause {
+      codeWriter.emit("<\(genericClause)>")
+    }
+      
+    codeWriter.emit("(")
     
     var delimeter = ""
     parameters?.forEach{ (param) in
@@ -52,8 +62,15 @@ public class MethodSpec : SwiftComponentWriter {
     }
     
     codeWriter.emit(")")
+    
+    if (isErrorThrown) {
+      codeWriter.emit(" throws")
+    }
     if let returnType = returnType {
       codeWriter.emit(" -> \(returnType)")
+    }
+    if let whereClause = whereClause {
+      codeWriter.emit(" where \(whereClause)")
     }
     if (!isAbstractMethod) {
       codeWriter.emit(" {\n")
@@ -74,6 +91,9 @@ public class MethodSpecBuilder {
   var modifiers = [TypeModifier]()
   var methodCode: CodeBlock?
   let isAbstract: Bool
+  var genericTypeClause: String?
+  var whereClause: String?
+  var isErrorThrown = false
   
   init(name: String, isAbstract: Bool = false) {
     self.name = name
@@ -95,6 +115,21 @@ public class MethodSpecBuilder {
     return self
   }
   
+  public func genericType(genericClause: String) -> MethodSpecBuilder {
+    self.genericTypeClause = genericClause
+    return self
+  }
+  
+  public func whereClause(whereClause: String) -> MethodSpecBuilder {
+    self.whereClause = whereClause
+    return self
+  }
+  
+  public func willThrowError() -> MethodSpecBuilder {
+    self.isErrorThrown = true
+    return self
+  }
+  
   public func code(codeString:String) -> MethodSpecBuilder {
     return self.code(CodeBlock.newCodeBlock(codeString))
   }
@@ -105,8 +140,9 @@ public class MethodSpecBuilder {
   }
   
   public func build() -> MethodSpec {
-    return MethodSpec(name: name, isAbstract: isAbstract, modifiers: modifiers, parameters: paramList,
-                      returnType: returnType, methodBlock: methodCode)
+    return MethodSpec(name: name, isAbstract: isAbstract, modifiers: modifiers,
+                      parameters: paramList, returnType: returnType, methodBlock: methodCode,
+                      genericClause: genericTypeClause, whereClause: whereClause, isErrorThrown: isErrorThrown)
   }
 }
 
