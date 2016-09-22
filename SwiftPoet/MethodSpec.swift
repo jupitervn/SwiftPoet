@@ -115,8 +115,9 @@ public class ParameterSpec : SwiftComponentWriter {
   let paramType: String
   let defaultValue: String?
   let argLabel: String?
+  let isInOut: Bool
   
-  public init(_ name:String?, paramType: String, defaultValue:String? = nil, argLabel: String? = nil) {
+  public init(_ name:String?, paramType: String, defaultValue: String? = nil, argLabel: String? = nil, isInOut: Bool = false) {
     self.name = name
     self.paramType = paramType
     self.defaultValue = defaultValue
@@ -125,13 +126,16 @@ public class ParameterSpec : SwiftComponentWriter {
     } else {
       self.argLabel = argLabel
     }
+    self.isInOut = isInOut
   }
   
   func emit(codeWriter: CodeWriter) {
     codeWriter
       .emit(argLabel?.append(" ") ?? "")
       .emit(name ?? "")
-      .emit(": \(paramType)")
+      .emit(":")
+      .emit(isInOut ? " inout" : "")
+      .emit(" \(paramType)")
     
     if let defaultValue = defaultValue {
       codeWriter.emit(" = \(defaultValue)")

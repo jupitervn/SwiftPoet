@@ -60,7 +60,7 @@ class SwiftFile_Tests: XCTestCase {
     classSpecBuilder.addMethod(method)
     let methodWithCode = MethodSpec.methodBuilder("testFunc2")
       .addParam(ParameterSpec("param", paramType: "String", defaultValue: "\"abc\""))
-      .addParam(ParameterSpec("param2", paramType: "Int"))
+      .addParam(ParameterSpec("param2", paramType: "Int", isInOut: true))
       .code("print(\"abc\")\n")
       .build()
     
