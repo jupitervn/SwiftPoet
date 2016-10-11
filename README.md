@@ -6,7 +6,7 @@ SwiftPoet is a library that is inspired from https://github.com/square/javapoet 
 
 ### Cocoapods:
 ```
-pod 'SwiftPoet', :git => 'git@github.com:jupitervn/SwiftPoet.git'
+pod 'SwiftPoet', :git => 'git@github.com:jupitervn/SwiftPoet.git' // or 'https://github.com/jupitervn/SwiftPoet'
 ```
 
 ### Swift file: 
@@ -14,7 +14,7 @@ In order to generate swift file, you can use `SwiftFile.newFile()` or `SwiftFile
 Example:
 ```
 let swiftFile = SwiftFile
-        .newFile({file_name})
+        .newFile({name})
         .addType(classSpec)
         .addMethod(operatorMethod)
         .build()
@@ -43,10 +43,11 @@ Example
       .addMethod(MethodSpec.initBuilder().addParam(ParameterSpec(name: "name", paramType: "String")).build())
       .build()
     
-    let swiftFile = SwiftFile
+let swiftFile = SwiftFile
       .newSingleClass("sample_class01_output", classSpec: classSpec!)
       .build()
       .writeTo(testOutputDir)
+
 ```
 will generate this file
 ```
@@ -88,7 +89,7 @@ if (param == "test") {
     }
 ```
 
-Please find more examples inside SwiftFile_Tests.swift to learn more about the usage of this library.
+Please find more examples inside [SwiftFile_Tests.swift](SwiftPoet-Tests/SwiftFile_Tests.swift) to learn more about the usage of this library.
 
 
 
